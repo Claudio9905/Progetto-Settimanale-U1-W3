@@ -479,9 +479,50 @@ console.log("Il film cercato è: ", searchByTitle(titleFilm));
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+const strMovies = "Lord";
+
+const searchAndDivide = function (stringa) {
+  const objB = {
+    match: [],
+    unmatch: [],
+  };
+
+  objB.match.push(
+    movies.filter((filmMatch) => {
+      if (filmMatch.Title.includes(stringa)) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  );
+
+  objB.unmatch.push(
+    movies.filter((filmUnmatch) => {
+      if (!filmUnmatch.Title.includes(stringa)) {
+        return true;
+      } else {
+        false;
+      }
+    })
+  );
+  return objB;
+};
+
+console.log("Lista film: ", searchAndDivide(strMovies));
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+const index = 14;
+
+const removeIndex = function (num) {
+  movies.splice(num, 1);
+  return movies;
+};
+
+console.log("Lista dei film aggiornata: ", removeIndex(num));
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -489,29 +530,90 @@ console.log("Il film cercato è: ", searchByTitle(titleFilm));
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+const selectContainer = function () {
+  const div = document.getElementById("container");
+  console.log("Elemento selezionato", div);
+};
+
+selectContainer();
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+const selectTd = function () {
+  const td = document.getElementsByTagName("td");
+  console.log("Elemento selezionato: ", td);
+};
+
+selectTd();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+const stampaTd = function () {
+  const td = document.querySelectorAll("td");
+
+  td.forEach((testo) => {
+    console.log("contenuto del td: ", testo.innerText);
+  });
+};
+
+stampaTd();
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const linkGreen = function () {
+  const aGreen = document.querySelectorAll("a");
+
+  aGreen.forEach((link) => {
+    link.style.backgroundColor = "green";
+  });
+};
+
+linkGreen();
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const newList = function () {
+  // const div = document.getElementById("list")
+  const ul = document.getElementById("myList");
+  const newLi = document.createElement("li");
+  newLi.innerText = "Sono un elemento della lista";
+  ul.appendChild(newLi);
+};
+
+newList();
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const removeList = function () {
+  const listRemove = document.querySelectorAll("#myList li");
+  listRemove.forEach((list) => {
+    list.remove();
+  });
+};
+
+removeList();
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const editTr = function () {
+  const rigaEdit = document.querySelectorAll("tr");
+  rigaEdit.forEach((riga) => {
+    riga.classList.add("test");
+  });
+};
+
+editTr();
 
 // [EXTRA] JS Avanzato
 
