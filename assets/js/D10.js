@@ -102,7 +102,8 @@ let stringa = "I love Coding";
 
 const splitMe = function (stringa) {
   let strSplit = [];
-  return (strSplit = stringa.split(" "));
+  strSplit.push(stringa.split(" "));
+  return strSplit;
 };
 
 console.log("Stringa splittata in un array: ", splitMe(stringa));
