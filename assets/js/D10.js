@@ -190,14 +190,14 @@ let totN = 0;
 
 const rollTheDices = function (n) {
   totExtract = {
-    sun: totN,
+    sum: totN,
     values: [],
   };
 
   for (let i = 0; i < n; i++) {
     numberGenerate = dice(n);
     totExtract.values.push(numberGenerate);
-    totN += totExtract.values[i];
+    totExtract.sum += totExtract.values[i];
   }
 
   return totExtract;
