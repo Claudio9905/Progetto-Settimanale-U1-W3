@@ -451,9 +451,11 @@ console.log("I film del millennio scorso: ", onlyInLastMillennium());
 */
 
 const sumAllTheYears = function () {
-  return movies.reduce((acc, el) => {
+  let sumYears = 0;
+  sumYears = movies.reduce((acc, el) => {
     acc + parseInt(el.Year);
   }, 0);
+  return sumYears;
 };
 
 console.log(
